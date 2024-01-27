@@ -1,0 +1,91 @@
+/* :root is a place where you can assign variable!! */
+:root {
+    --primary-color: #86c3ea;
+    --secondary-color: #1fa1d8;
+    --bg-color: #0d1315; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "IBM Plex Sans", sans-serif;
+    transition-duration: 200ms;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--primary-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+    padding: 14px;
+}
+
+.darkerText {
+    color: var(--secondary-color);
+}
+
+header, main, footer {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+nav {
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+nav a {
+    cursor: pointer;
+}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
+main, section, .nameContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    gap: 64px;
+}
+
+section {
+    gap: 48px;
+}
+
+.nameContainer {
+    gap: 9px;
+}
+
+.statsContainer {
+    display: flex;
+    align-items: stretch;
+    gap: 24px;
+}
+
+.imgContainer {
+    border-radius: 100%;
+    max-width: 144px;
+    overflow: hidden;
+}
+
+.imgContainer img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
