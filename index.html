@@ -20,8 +20,12 @@
         <h2>MN</h2>
         <nav>
             <!-- Nav section for Links (that will be in the top right corner) (give these links cool logos in the future) -->
-            <a class="darkerText" href="https://www.linkedin.com/in/max-noddings/" target="_blank">LinkedIn</a>
-            <a class="darkerText" href="https://github.com/MaxNoddings" target="_blank">GitHub</a>
+            <a class="logo-img" href="https://www.linkedin.com/in/max-noddings/" target="_blank">
+                <img class="logo-img" src="linkedin.svg" alt="LinkedIn Logo">
+            </a>
+            <a class="logo-img git-img" href="https://www.linkedin.com/in/max-noddings/" target="_blank">
+                <img class="logo-img git-img" src="github.png" alt="LinkedIn Logo">
+            </a>
         </nav>
     </header>
     <!-- Main Content Section -->
@@ -44,15 +48,15 @@
                     </div>
                     <div>
                         <div>
-                            <i class="fa-solid fa-user-plus"></i>
+                            <i class="fa-brands fa-linkedin"></i>
                         </div>
-                        <p>4,000,000 Followers</p>
+                        <p>486 connections</p>
                     </div>
                     <div>
                         <div>
-                            <i class="fa-solid fa-code-commit"></i>
+                            <i class="fa-solid fa-code-branch"></i>
                         </div>
-                        <p>69 commits this year</p>
+                        <p>83 contributions this year</p>
                     </div>
                 </div>
             </div>
@@ -65,7 +69,11 @@
                 and it is my greatest goal to be surrounded by the people who are badass,
                 powerful, and extremely in line with my own aspirations.
             </p>
-            <div>
+            <div class="links">
+                <a href="MaxNoddings-Resume.pdf" download="MaxNoddings-Resume.pdf" class="outreach darkerText"> 
+                    <i class="fa-solid fa-download"></i>
+                    <p>Resume</p>
+                </a>
                 <a href="mailto:mnodd4@gmail.com" class="outreach darkerText">
                     <i class="fa-solid fa-envelope"></i>
                     <p>Email Me</p>
@@ -74,7 +82,7 @@
         </section>
         <section class="projectContainer">
             <!-- For Projects list the three or 4 most relevant or latest and then add a more link to a new page that has all the projects -->
-            <p class="darkerText headerText">Projects</p>
+            <h1 class="headerText">Projects</h1>
             <div class="projectItem">
                 <div>
                     <p class="darkerText">December 2024</p>
@@ -102,6 +110,14 @@
                 <div>
                     <p class="darkerText">Summer 2021</p>
                     <p>RC Plane Design and Fabrication Project - Initiated and completed a self-driven project to construct a remote-control plane from scratch</p>
+                    <div class="linkContainer">
+                        <a target="_blank" href="https://www.youtube.com/watch?v=w4O2gT5sXWE" class="linkItem">
+                            <div>
+                                <i class="fa-solid fa-images"></i>
+                            </div>
+                            <p>Photos</p>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <img src="/public/rc-plane.png" alt="rcplane-img"/>
@@ -111,7 +127,20 @@
                 <div>
                     <p class="darkerText">Summer 2020</p>
                     <p>Custom Built Rocket System - from scratch designed a sick rocket and launched that baby!!!</p>
-
+                    <div class="linkContainer">
+                        <a target="_blank" href="https://www.youtube.com/watch?v=w4O2gT5sXWE" class="linkItem">
+                            <div>
+                                <i class="fa-brands fa-youtube"></i>
+                            </div>
+                            <p>Video</p>
+                        </a>
+                        <a target="_blank" href="https://www.youtube.com/watch?v=w4O2gT5sXWE" class="linkItem">
+                            <div>
+                                <i class="fa-solid fa-images"></i>
+                            </div>
+                            <p>Photos</p>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <img src="/public/rocket.png" alt="rocket-img"/>
