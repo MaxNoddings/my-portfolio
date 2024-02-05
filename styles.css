@@ -189,6 +189,12 @@ section {
     object-fit: cover;
 }
 
+.projectHeader {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+}
+
 .linkContainer {
     display: flex;
     align-items: center;
