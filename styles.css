@@ -45,6 +45,16 @@ header {
     gap: 14px;
 }
 
+.initials {
+    color: var(--primary-color);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.initials:hover {
+    opacity: 0.7;
+}
+
 nav {
     color: var(--secondary-color);
     display: flex;
