@@ -45,6 +45,10 @@ header {
     gap: 14px;
 }
 
+.gallery-img {
+    max-width: 700px;
+}
+
 .initials {
     color: var(--primary-color);
     cursor: pointer;
