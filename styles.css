@@ -172,6 +172,33 @@ section {
     display: flex;
     flex-direction: column;
     gap: 50px;
+    /* background-color: #1d3036; */
+}
+
+#ch {
+    display: none;
+}
+
+#ch:checked ~ label {
+    display: none;
+}
+
+#ch:checked ~ .hidden {
+    display: block;
+}
+
+label {
+    display: inline-block;
+    cursor: pointer;
+    color: rgb(24, 24, 24);
+    background-color: aqua;
+    padding: 3px 13px;
+    border-radius: 3px;
+    margin-top: 12px;
+}
+
+.hidden {
+    display: none;
 }
 
 .headerText {
