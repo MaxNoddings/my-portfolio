@@ -294,3 +294,7 @@ label:hover {
         margin-right: auto;
     }
 }
+
+.project-title {
+    margin-bottom: -50px;
+}
