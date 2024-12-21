@@ -19,7 +19,7 @@ exports.handler = async () => {
 
         // Fetch commits for all repositories
         let commitCount = 0;
-        for (const repo of repos) {
+        for (const repo of userData) {
             const commitsResponse = await fetch(`https://api.github.com/repos/${username}/${repo.name}/commits`, {
                 headers: { Authorization: `token ${token}` }
             });
