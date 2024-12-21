@@ -15,7 +15,7 @@ exports.handler = async () => {
         }
 
         // Count the total repositories (public and private)
-        const totalRepos = userData.lenght;
+        const totalRepos = userData.length;
 
         // Fetch commits for all repositories
         let commitCount = 0;
