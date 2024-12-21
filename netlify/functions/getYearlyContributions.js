@@ -23,7 +23,7 @@ async function getYearlyContributions(username) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer GITHUB_TOKEN`, // Replace with your GitHub token
+        Authorization: `Bearer put-github-token-here`, // Replace with your GitHub token
       },
       body: JSON.stringify({ query, variables }),
     });
