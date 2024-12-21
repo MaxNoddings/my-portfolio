@@ -5,12 +5,23 @@ exports.handler = async () => {
     const token = process.env.GITHUB_TOKEN; // Securely access your token
 
     try {
-        // Fetch repositories
-        const reposResponse = await fetch(`https://api.github.com/users/${username}/repos`, {
+        // Fetch user data including private repo count
+        const userResponse = await fetch(`https://api.github.com/users/${username}/repos`, {
             headers: { Authorization: `token ${token}` }
         });
+        const userData = await userResponse.json();
+
+        if (userResponse.status !== 200) {
+            throw new Error(userData.message || "Failed to fetch user data");
+        }
+
+        // Fetch total commit count across all repositories
+        const reposResponse = await fetch(`https://api.github.com/user/repos?per_page=100`, {
+            headers: { Authorization: `token ${token}` }
+        });
+
         const repos = await reposResponse.json();
-        const repoCount = repos.length;
+        const totalRepos = userData.total_private_repos + userData.public_repos;
 
         // Fetch commits for all repositories
         let commitCount = 0;
@@ -19,12 +30,12 @@ exports.handler = async () => {
                 headers: { Authorization: `token ${token}` }
             });
             const commits = await commitsResponse.json();
-            commitCount += commits.length;
+            commitCount += Array.isArray(commits) ? commits.length : 0;
         }
 
         return {
             statusCode: 200,
-            body: JSON.stringify({ repoCount, commitCount }),
+            body: JSON.stringify({ totalRepos, commitCount }),
         };
     } catch (error) {
         console.error("Error fetching GitHub stats:", error);
