@@ -3,7 +3,7 @@ async function fetchGitHubStats() {
     
     try {
         // Call the serverless function
-        const response = await fetch('/.netlify/functions/getRepoCount');
+        const response = await fetch('/.netlify/functions/get-repo-count');
         const data = await response.json();
 
         // Update the stats section
