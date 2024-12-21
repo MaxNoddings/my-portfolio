@@ -6,7 +6,7 @@ exports.handler = async () => {
 
     try {
         // Fetch user data including private repo count
-        const userResponse = await fetch(`https://api.github.com/users/${username}/repos`, {
+        const userResponse = await fetch(`https://api.github.com/users/${username}/repos?visibility=all`, {
             headers: { Authorization: `token ${token}` }
         });
         const userData = await userResponse.json();
