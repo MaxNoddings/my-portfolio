@@ -10,18 +10,12 @@ exports.handler = async () => {
             headers: { Authorization: `token ${token}` }
         });
         const userData = await userResponse.json();
-
         if (userResponse.status !== 200) {
             throw new Error(userData.message || "Failed to fetch user data");
         }
 
-        // Fetch total commit count across all repositories
-        const reposResponse = await fetch(`https://api.github.com/user/repos?per_page=100`, {
-            headers: { Authorization: `token ${token}` }
-        });
-
-        const repos = await reposResponse.json();
-        const totalRepos = userData.total_private_repos + userData.public_repos;
+        // Count the total repositories (public and private)
+        const totalRepos = userData.lenght;
 
         // Fetch commits for all repositories
         let commitCount = 0;
