@@ -24,7 +24,7 @@ exports.handler = async () => {
                 headers: { Authorization: `token ${token}` }
             });
             const commits = await commitsResponse.json();
-            commitCount += Array.isArray(commits) ? commits.length : 0;
+            commitCount += commits.length;
         }
 
         return {
