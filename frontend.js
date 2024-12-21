@@ -5,7 +5,7 @@ async function fetchGitHubStats() {
         const data = await response.json();
 
         // Update the stats section
-        document.getElementById("repo-count").innerText = data.repoCount;
+        document.getElementById("repo-count").innerText = data.totalRepos;
         document.getElementById("commit-count").innerText = data.commitCount;
     } catch (error) {
         console.error("Error fetching GitHub stats:", error);
