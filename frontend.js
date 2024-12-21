@@ -2,18 +2,24 @@ async function fetchGitHubStats() {
     const username = "MaxNoddings";
     
     try {
-        // Call the serverless function
-        const response = await fetch('/.netlify/functions/get-repo-count');
-        const data = await response.json();
+        // Call the repo serverless function
+        const repoResponse = await fetch('/.netlify/functions/get-repo-count');
+        const repoData = await repoResponse.json();
 
-        // Update the stats section
-        document.getElementById("repo-count").innerText = data.totalRepositories;
-        // document.getElementById("commit-count").innerText = data.commitCount;
-        // document.getElementById("commit-count").innerText = contributionEvents.length;
+        // Update num repositories
+        document.getElementById("repo-count").innerText = repoData.totalRepositories;
+
+        // Call the contributions serverless function
+        const contributionsResponse = await fetch('/.netlify/functions/get-yearly-contributions');
+        const contributionsData = await contributionsResponse.json();
+
+        // Update num repositories
+        document.getElementById("contribution-count").innerText = contributionsData.totalRepositories;
+
     } catch (error) {
         console.error("Error fetching GitHub stats:", error);
         document.getElementById("repo-count").innerText = "Error";
-        // document.getElementById("commit-count").innerText = "Failed to fetch contributions:";
+        document.getElementById("contribution-count").innerText = "Error";
     }
 }
 

@@ -1,4 +1,7 @@
-async function getYearlyContributions(username) {
+exports.handler = async () => {
+  const username = "MaxNoddings";
+  const token = process.env.GITHUB_TOKEN; // Securely access your token
+
   const query = `
     query($username: String!) {
       user(login: $username) {
@@ -23,7 +26,7 @@ async function getYearlyContributions(username) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer put-github-token-here`, // Replace with your GitHub token
+        Authorization: `Bearer ${token}`, // Replace with your GitHub token
       },
       body: JSON.stringify({ query, variables }),
     });
@@ -35,21 +38,22 @@ async function getYearlyContributions(username) {
       return;
     }
 
-    const contributions =
-      result.data.user.contributionsCollection;
+    const contributions = result.data.user.contributionsCollection;
 
-    const totalContributions = contributions.contributionCalendar.totalContributions;
+    const publicContributions = contributions.contributionCalendar.totalContributions;
     const restrictedContributions = contributions.restrictedContributionsCount;
 
-    console.log(`
-      Public Contributions: ${totalContributions}
-      Private Contributions: ${restrictedContributions}
-      Total Contributions in the Past Year: ${totalContributions + restrictedContributions}
-    `);
-  } catch (error) {
-    console.error('Failed to fetch contributions:', error);
-  }
-}
+    const totalContributions = publicContributions + restrictedContributions;
 
-// Example usage:
-getYearlyContributions('MaxNoddings');
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ totalContributions }),
+    };
+  } catch (error) {
+    console.error("Error fetching GitHub contributions:", error);
+    return {
+        statusCode: 500,
+        body: JSON.stringify({ error: "Failed to fetch GitHub contributions" }),
+    };
+  }
+};

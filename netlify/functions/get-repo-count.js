@@ -39,9 +39,9 @@ exports.handler = async () => {
       };
     } catch (error) {
       console.error("Error fetching GitHub repositories:", error);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: "Failed to fetch GitHub repositories" }),
-        };
+      return {
+          statusCode: 500,
+          body: JSON.stringify({ error: "Failed to fetch GitHub repositories" }),
+      };
     }
 };
