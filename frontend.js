@@ -14,7 +14,7 @@ async function fetchGitHubStats() {
         const contributionsData = await contributionsResponse.json();
 
         // Update num repositories
-        document.getElementById("contribution-count").innerText = contributionsData.totalRepositories;
+        document.getElementById("contribution-count").innerText = contributionsData.totalContributions;
 
     } catch (error) {
         console.error("Error fetching GitHub stats:", error);
